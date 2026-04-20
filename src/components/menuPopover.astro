@@ -1,28 +1,46 @@
 ---
+//@ts-nocheck
 import ProgramPopover from "./programPopover.astro";
 import ArkivPopover from "./arkivPopover.astro";
-import InfoPopover from "./infoPopover.astro";
+
+import frivilligePopover from "./frivilligePopover.astro";
+import maltidetPopover from "./maltidetPopover.astro";
+import omhostmonPopover from "./omhostmonPopover.astro";
+import omimpactPopover from "./omimpactPopover.astro";
+import pladsenPopover from "./pladsenPopover.astro";
+
 import "../styles/global.css";
+
+import { Image } from "astro:assets";
+import luk from "../assets/luk.webp";
+import arkiv from "../assets/arkiv.webp";
+import maltid from "../assets/maltid.webp";
+import program from "../assets/program.webp";
+import frivillig from "../assets/frivillig.webp";
+import playliste from "../assets/playliste.webp";
+import omhostmon from "../assets/omhostmon.webp";
+import omimpact from "../assets/omimpact.webp";
+import ompladsen from "../assets/ompladsen.webp";
 ---
 
 <div popover id="menuPopover">
   <div class="stickyBox">
     <button popovertarget="menuPopover" id="close_btn" class="lukBtn"
-      ><img src="/img_vid/luk.webp" alt="Luk knap" /></button
+      ><Image src={luk} alt="Luk knap" /></button
     >
   </div>
 
   <section class="billetter">
     <div>
       <button popovertarget="arkivPopover"
-        ><img
-          src="/img_vid/arkiv.webp"
+        ><Image
+          src={arkiv}
           alt="Tryk her for at se Arkiv"
           class="menuCta"
         /></button
       >
-         <button popovertarget="infoPopover"><img
-        src="/img_vid/maltid.webp"
+         <button popovertarget="infoPopover"><Image
+        src={maltid}
         alt="Tryk her for at se læse om måltidet"
         class="menuCta"
       /></button>
@@ -30,8 +48,8 @@ import "../styles/global.css";
 
     <div>
       <button popovertarget="programPopover"
-        ><img
-          src="/img_vid/program.webp"
+        ><Image
+          src={program}
           alt="Tryk her for at se musikprogrammet"
           class="menuCta"
         /></button
@@ -39,34 +57,34 @@ import "../styles/global.css";
     </div>
 
     <div>
-       <button popovertarget="infoPopover"><img
-        src="/img_vid/frivillig.webp"
+       <button popovertarget="infoPopover"><Image
+        src={frivillig}
         alt="Tryk her for at læse om at blive frivillig"
         class="menuCta"
       /></button>
-      <a href=""><img
-        src="/img_vid/playliste.webp"
+      <a href=""><Image
+        src={playliste}
         alt="Tryk her for at gå til playliste med alle kunstnerne"
         class="menuCta"
       /></a>
     </div>
 
     <div>
-       <button popovertarget="infoPopover"><img
-        src="/img_vid/omhostmon.webp"
+       <button popovertarget="infoPopover"><Image
+        src={omhostmon}
         alt="Tryk her for at læse om Høst Møn Festival"
         class="menuCta"
       /></button>
-       <button popovertarget="infoPopover"><img
-        src="/img_vid/omimpact.webp"
+       <button popovertarget="infoPopover"><Image
+        src={omimpact}
         alt="Tryk her for at læse om Impact Festival"
         class="menuCta"
       /></button>
     </div>
 
     <div>
-       <button popovertarget="infoPopover"><img
-        src="/img_vid/ompladsen.webp"
+       <button popovertarget="infoPopover"><Image
+        src={ompladsen}
         alt="Tryk her for at læse om pladsen"
         class="menuCta"
       /></button>
@@ -76,7 +94,12 @@ import "../styles/global.css";
 
 <ArkivPopover />
 <ProgramPopover />
-<InfoPopover />
+
+<frivilligePopover />
+<maltidetPopover />
+<omhostmonPopover />
+<omimpactPopover />
+<pladsenPopover />
 
 <style>
   section {

@@ -1,3 +1,9 @@
+---
+//@ts-nocheck
+import { Image } from "astro:assets";
+import logo from "../assets/logo.webp";
+import menu from "../assets/menu.webp";
+---
 <html lang="da">
   <head>
     <meta charset="utf-8" />
@@ -16,14 +22,14 @@
   <body>
     <main class="background">
       <header>
-        <img
-          src="/img_vid/logo.webp"
+        <Image
+          src={logo}
           alt="Høst Møn Festival Logo"
           class="logo"
         />
         <h3>28.-29. AUGUST 2027</h3>
         <button popovertarget="menuPopover"
-          ><img src="/img_vid/menu.webp" alt="Menu knap" class="menu" /></button
+          ><Image src={menu} alt="Menu knap" class="menu" /></button
         >
       </header>
 
