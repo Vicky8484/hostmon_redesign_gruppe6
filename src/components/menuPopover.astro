@@ -1,0 +1,111 @@
+---
+import ProgramPopover from "./programPopover.astro";
+import ArkivPopover from "./arkivPopover.astro";
+import InfoPopover from "./infoPopover.astro";
+import "../styles/global.css";
+---
+
+<div popover id="menuPopover">
+  <div class="stickyBox">
+    <button popovertarget="menuPopover" id="close_btn" class="lukBtn"
+      ><img src="/img_vid/luk.webp" alt="Luk knap" /></button
+    >
+  </div>
+
+  <section class="billetter">
+    <div>
+      <button popovertarget="arkivPopover"
+        ><img
+          src="/img_vid/arkiv.webp"
+          alt="Tryk her for at se Arkiv"
+          class="menuCta"
+        /></button
+      >
+         <button popovertarget="infoPopover"><img
+        src="/img_vid/maltid.webp"
+        alt="Tryk her for at se læse om måltidet"
+        class="menuCta"
+      /></button>
+    </div>
+
+    <div>
+      <button popovertarget="programPopover"
+        ><img
+          src="/img_vid/program.webp"
+          alt="Tryk her for at se musikprogrammet"
+          class="menuCta"
+        /></button
+      >
+    </div>
+
+    <div>
+       <button popovertarget="infoPopover"><img
+        src="/img_vid/frivillig.webp"
+        alt="Tryk her for at læse om at blive frivillig"
+        class="menuCta"
+      /></button>
+      <a href=""><img
+        src="/img_vid/playliste.webp"
+        alt="Tryk her for at gå til playliste med alle kunstnerne"
+        class="menuCta"
+      /></a>
+    </div>
+
+    <div>
+       <button popovertarget="infoPopover"><img
+        src="/img_vid/omhostmon.webp"
+        alt="Tryk her for at læse om Høst Møn Festival"
+        class="menuCta"
+      /></button>
+       <button popovertarget="infoPopover"><img
+        src="/img_vid/omimpact.webp"
+        alt="Tryk her for at læse om Impact Festival"
+        class="menuCta"
+      /></button>
+    </div>
+
+    <div>
+       <button popovertarget="infoPopover"><img
+        src="/img_vid/ompladsen.webp"
+        alt="Tryk her for at læse om pladsen"
+        class="menuCta"
+      /></button>
+    </div>
+  </section>
+</div>
+
+<ArkivPopover />
+<ProgramPopover />
+<InfoPopover />
+
+<style>
+  section {
+    display: grid;
+    grid-template-columns: 0.5fr 1.2fr 0.8fr 0.5fr 0.5fr;
+    gap: 1rem;
+    padding: 4rem;
+    padding-top: 1rem;
+  }
+
+  #menuPopover {
+    background: none;
+    border: none;
+  }
+
+  .menuCta {
+    padding-bottom: 1rem;
+  }
+
+     @media screen and (max-width: 800px) {
+     #menuPopover {
+		width: 100%;
+        max-height: 100vh;
+	}
+
+  section {
+    display: grid;
+    grid-template-columns: 0.8fr 1fr;
+    gap: 1rem;
+  }
+    }
+</style>
