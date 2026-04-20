@@ -7,7 +7,16 @@ import "../styles/global.css";
 
 <Layout>
   <section class="mainSection">
-    <video src="/img_vid/video.mp4" autoplay muted loop playsinline></video>
+
+        <!-- Slideshow container -->
+            <div class="slideshow-container">
+                    <img class="mySlides fade" src="/img_vid/hm1.webp" alt="Høst Møn Festival" style="width:100%">
+
+                    <img class="mySlides fade" src="/img_vid/hm2.webp" alt="Høst Møn Festival" style="width:100%">
+
+                    <img class="mySlides fade" src="/img_vid/hm3.webp" alt="Høst Møn Festival" style="width:100%">
+            </div>
+
     <button popovertarget="billetPopover"
       ><img
         src="/img_vid/billetter.webp"
@@ -21,16 +30,18 @@ import "../styles/global.css";
       alt="Solen man kan klikke på"
       class="solen"
     />
+
   </section>
 
   <MenuPopover />
   <BilletPopover />
 
   <script src="../js/background.js"></script>
+    <script src="../js/slideshow.js"></script>
 </Layout>
 
 <style>
-  video {
+slideshow-container {
     border-radius: 999px;
     width: 100%;
     object-fit: cover;
