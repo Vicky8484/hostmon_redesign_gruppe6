@@ -1,0 +1,89 @@
+/*************** Reset *********************/
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+/*gør at al tekst er i samme font og farve, og at baggrunden er den samme på alle sider*/
+body {
+  font-family: "Tektur", sans-serif;
+  font-style: normal;
+  font-weight: 400;
+  color: #fff;
+  background-color: #d0bf8b;
+}
+
+/*fjerner default baggrund og border på knapper*/
+button {
+  background: none;
+  border: none;
+}
+
+/*box rundt om "luk knap" i popovers, der gør at den sidder fast i hjørnet mens man scroller*/
+.stickyBox {
+  padding: 0.5rem;
+  position: sticky;
+  top: 0;
+  z-index: 20;
+}
+
+/*luk knappen i popovers*/
+.lukBtn {
+  width: 80px;
+  position: relative;
+  z-index: 21;
+}
+
+.lukBtn:hover {
+  cursor: pointer;
+  filter: saturate(130%);
+}
+
+/*baggrunden mens man har popovers åbne*/
+::backdrop {
+  backdrop-filter: brightness(200%);
+  backdrop-filter: blur(2px);
+}
+
+/* Scrollbar styling */
+/* width */
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: #ffffff00;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #8f0f78;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}
+
+/* baggrunden på hele siden og class der skifter baggrunden i js når man trykker på solen*/
+.background {
+  background-image: linear-gradient(180deg, #8f0f78, #9b999b, #556e60, #d0bf8b);
+}
+
+.transform {
+  background-image: linear-gradient(180deg, #b7ceba, #739b8f, #dbc690);
+}
+
+/*gør at der kommer hover effekt på planeten*/
+.hover {
+  cursor: pointer;
+  filter: saturate(130%);
+}

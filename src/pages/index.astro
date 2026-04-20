@@ -1,17 +1,75 @@
 ---
-
+import Layout from "../layouts/layout.astro";
+import MenuPopover from "../components/menuPopover.astro";
+import BilletPopover from "../components/billetPopover.astro";
+import "../styles/global.css";
 ---
 
-<html lang="en">
-	<head>
-		<meta charset="utf-8" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<link rel="icon" href="/favicon.ico" />
-		<meta name="viewport" content="width=device-width" />
-		<meta name="generator" content={Astro.generator} />
-		<title>Astro</title>
-	</head>
-	<body>
-		<h1>Astro</h1>
-	</body>
-</html>
+<Layout>
+  <section class="mainSection">
+    <video src="/img_vid/video.mp4" autoplay muted loop playsinline></video>
+    <button popovertarget="billetPopover"
+      ><img
+        src="/img_vid/billetter.webp"
+        alt="Knap til at købe billetter"
+        class="billetter"
+      /></button
+    >
+
+    <img
+      src="/img_vid/solen.webp"
+      alt="Solen man kan klikke på"
+      class="solen"
+    />
+  </section>
+
+  <MenuPopover />
+  <BilletPopover />
+
+  <script src="../js/background.js"></script>
+</Layout>
+
+<style>
+  video {
+    border-radius: 999px;
+    width: 100%;
+    object-fit: cover;
+    aspect-ratio: 1;
+  }
+
+  .solen {
+    width: 100%;
+    justify-self: right;
+  }
+
+  .billetter {
+    width: 100%;
+    justify-self: center;
+  }
+
+  .billetter:hover {
+    cursor: pointer;
+    filter: saturate(130%);
+  }
+
+  .solen:hover {
+    cursor: pointer;
+    filter: saturate(130%);
+  }
+
+  .mainSection {
+    display: grid;
+    grid-template-columns: 1.8fr 1fr 1.5fr;
+	gap: 1rem;
+  align-items: center;
+  }
+
+      @media screen and (max-width: 800px) {
+ .mainSection {
+    display: grid;
+    grid-template-columns: 1.8fr 1fr;
+	gap: 1rem;
+  align-items: center;
+  }
+    }
+</style>
