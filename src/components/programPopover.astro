@@ -1,6 +1,109 @@
 ---
+//@ts-nocheck
 import EnkeltArtist from "./enkeltArtist.astro";
 import "../styles/global.css";
+import { Image } from "astro:assets";
+import luk from "../assets/luk.webp";
+import majkevoss from "../assets/majkevoss.webp";
+import miaw from "../assets/miaw.webp";
+import schoolofx from "../assets/schoolofx.webp";
+import snuggle from "../assets/snuggle.webp";
+import bokoyouts from "../assets/bokoyouts.webp";
+import spawner from "../assets/spawner.webp";
+
+const url = `${import.meta.env.SUPABASE_URL}/rest/v1/Kunstnere?select=*`;
+const apiKey = import.meta.env.SUPABASE_PUBLISHABLE_KEY;
+
+const options = {
+  headers: {
+    apikey: apiKey,
+  },
+};
+
+const data = await fetch(url, options).then((res) => res.json());
+
+const slugify = (name) =>
+  name
+    .toLowerCase()
+    .replace(/\s+/g, "")
+    .replace(/[^a-z0-9]/g, "");
+
+console.log(data);
 ---
 
-<h1>tank uuuuu</h1>
+<div popover id="programPopover" class="background">
+  <div class="stickyBox">
+    <button popovertarget="menuPopover" id="close_btn" class="lukBtn"
+      ><Image src={luk} alt="Luk knap" /></button
+    >
+  </div>
+  <section>
+    <div>
+      <button type="button" data-artist-slug="snuggle"
+        ><Image src={snuggle} alt="Musik kunstner snuggle" /></button
+      >
+      <button type="button" data-artist-slug="majkevoss"
+        ><Image src={majkevoss} alt="Musik kunstner majkevoss" /></button
+      >
+      <button type="button" data-artist-slug="miaw"
+        ><Image src={miaw} alt="Musik kunstner miaw" /></button
+      >
+    </div>
+    <div class="column2">
+      <button type="button" data-artist-slug="spawner">
+        <Image src={spawner} alt="Musik kunstner spawner" /></button
+      >
+      <button type="button" data-artist-slug="schoolofx"
+        ><Image src={schoolofx} alt="Musik kunstner school of x" /></button
+      >
+      <button type="button" data-artist-slug="bokoyouts">
+        <Image src={bokoyouts} alt="Musik kunstner boko youts" /></button
+      >
+    </div>
+  </section>
+</div>
+
+{
+  data.map((kunstner) => (
+    <EnkeltArtist kunstner={kunstner} slug={slugify(kunstner.kunstner_navn)} />
+  ))
+}
+
+<script>
+  const artistButtons = document.querySelectorAll("[data-artist-slug]");
+
+  artistButtons.forEach((button) => {
+    button.addEventListener("click", () => {
+      const slug = button.getAttribute("data-artist-slug");
+      if (!slug) return;
+
+      const dialogEl = document.getElementById(`artistPopover-${slug}`);
+      if (dialogEl instanceof HTMLDialogElement) {
+        if (typeof dialogEl.showModal === "function") {
+          dialogEl.showModal();
+        } else if (typeof dialogEl.show === "function") {
+          dialogEl.show();
+        }
+      }
+    });
+  });
+</script>
+
+<style>
+  #programPopover {
+    margin: auto;
+    border: none;
+    width: 50%;
+    max-height: 70vh;
+  }
+  section {
+    display: grid;
+    grid-template-columns: 1fr 0.7fr;
+    gap: 1rem;
+    padding: 1rem;
+  }
+
+  .column2 {
+    padding-top: 3rem;
+  }
+</style>
