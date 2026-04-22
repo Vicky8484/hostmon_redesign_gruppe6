@@ -14,7 +14,7 @@ import luk from "../assets/luk.webp";
       class="lukBtn"><Image src={luk} alt="Luk knap" /></button
     >
   </div>
-  <img src={arkiv.arkiv_billede} alt="Dem der spillede i {arkiv.arstal}" />
+  <img src={arkiv.arkiv_billede} alt=`Dem der spillede i ${arkiv.arstal}` />
 </dialog>
 
 <style>
@@ -24,9 +24,12 @@ import luk from "../assets/luk.webp";
     max-height: 70vh;
     margin: auto;
   }
-  @media screen and (max-width: 600px) {
-    #enkeltArkiv {
-      width: 90%;
+
+  @media screen and (max-width: 800px) {
+    dialog {
+      margin: auto;
+      width: 80%;
+      max-height: 80vh;
     }
   }
 </style>

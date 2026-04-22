@@ -59,13 +59,13 @@ import maltidet from "../assets/maltidet.webp";
     padding: 1rem;
   }
   .text p {
-    width: 65ch;
+    width: 75%;
+    justify-self: center;
   }
   #frivilligePopover {
     margin: auto;
     color: white;
     border: none;
-    width: 65ch;
     width: 50%;
     max-height: 70vh;
   }
@@ -80,5 +80,18 @@ import maltidet from "../assets/maltidet.webp";
     z-index: 2;
     width: calc(100% - 2rem);
     font-size: 4vw;
+  }
+
+  @media screen and (max-width: 600px) {
+    #frivilligePopover {
+      margin: auto;
+      width: 80%;
+      max-height: 80vh;
+    }
+
+    .text p {
+      width: 100%;
+      text-wrap: balance;
+    }
   }
 </style>

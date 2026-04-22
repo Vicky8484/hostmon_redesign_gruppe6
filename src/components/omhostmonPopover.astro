@@ -64,12 +64,10 @@ import om from "../assets/hostmon.webp";
         gør vi igen i 2026, samtidig med at vi holder Høst Møn.
       </p>
       <br />
-      <p><b>Kontakt os:</b></p><br />
-      <p>Spørgsmål, samarbejde, generel info: info@hoestmoen.dk</p><br />
-      <p>Booking: booking@hoestmoen.dk</p><br />
-      <p>
-        Produktion (scene, plads, infrastruktur): produktion@hoestmoen.dk
-      </p><br />
+      <p><b>Kontakt os:</b></p>
+      <p>Spørgsmål, samarbejde, generel info: info@hoestmoen.dk</p>
+      <p>Booking: booking@hoestmoen.dk</p>
+      <p>Produktion (scene, plads, infrastruktur): produktion@hoestmoen.dk</p>
       <p>Frivillige: frivillig@hoestmoen.dk</p><br />
     </div>
   </article>
@@ -85,7 +83,8 @@ import om from "../assets/hostmon.webp";
     padding: 1rem;
   }
   .text p {
-    width: 65ch;
+    width: 75%;
+    justify-self: center;
   }
   #omhostmonPopover {
     margin: auto;
@@ -105,5 +104,18 @@ import om from "../assets/hostmon.webp";
     z-index: 2;
     width: calc(100% - 2rem);
     font-size: 4vw;
+  }
+
+  @media screen and (max-width: 600px) {
+    #omhostmonPopover {
+      margin: auto;
+      width: 80%;
+      max-height: 80vh;
+    }
+
+    .text p {
+      width: 100%;
+      text-wrap: balance;
+    }
   }
 </style>

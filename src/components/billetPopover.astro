@@ -18,7 +18,7 @@ import billet from "../assets/findbillet.webp";
     <p>28 aug. 2026 12:00 - 29. aug. 2026 23:00</p>
     <p><b>Fortvej 8, 4760, Vordingborg</b></p>
   </div>
-  <br /><Image src={billet} alt="Billet" />
+  <br /><Image src={billet} alt="Billet" class="billetter" />
 </div>
 
 <style>
@@ -30,5 +30,18 @@ import billet from "../assets/findbillet.webp";
   }
   .text {
     text-align: center;
+  }
+
+  .billetter:hover {
+    cursor: pointer;
+    filter: saturate(130%);
+  }
+
+  @media screen and (max-width: 1000px) {
+    #billetPopover {
+      margin: auto;
+      width: 80%;
+      max-height: 80vh;
+    }
   }
 </style>

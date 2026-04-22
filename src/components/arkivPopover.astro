@@ -33,7 +33,7 @@ console.log(data);
 
 <div popover id="arkivPopover" class="background">
   <div class="stickyBox">
-    <button popovertarget="menuPopover" id="close_btn" class="lukBtn"
+    <button popovertarget="arkivPopover" id="close_btn" class="lukBtn"
       ><Image src={luk} alt="Luk knap" /></button
     >
   </div>
@@ -87,6 +87,7 @@ console.log(data);
     });
   });
 </script>
+
 <style>
   #arkivPopover {
     margin: auto;
@@ -103,8 +104,27 @@ console.log(data);
     display: grid;
     grid-template-columns: 1fr 0.8fr;
     gap: 2.5rem;
+    padding: 3rem;
   }
   .cta {
     padding-bottom: 2rem;
+  }
+
+  .cta:hover {
+    cursor: pointer;
+    filter: saturate(130%);
+  }
+
+  @media screen and (max-width: 800px) {
+    #arkivPopover {
+      margin: auto;
+      width: 80%;
+      max-height: 80vh;
+    }
+
+    section {
+      padding: 1rem;
+      gap: 1rem;
+    }
   }
 </style>
