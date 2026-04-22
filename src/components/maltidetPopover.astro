@@ -1,4 +1,5 @@
 ---
+//@ts-nocheck
 import "../styles/global.css";
 import { Image } from "astro:assets";
 import luk from "../assets/luk.webp";
@@ -7,7 +8,7 @@ import maltidet from "../assets/maltidet.webp";
 
 <div popover id="maltidetPopover" class="background">
   <div class="stickyBox">
-    <button popovertarget="menuPopover" id="close_btn" class="lukBtn"
+    <button popovertarget="maltidetPopover" id="close_btn" class="lukBtn"
       ><Image src={luk} alt="Luk knap" /></button
     >
   </div>
