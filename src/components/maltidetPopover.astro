@@ -67,7 +67,8 @@ import maltidet from "../assets/maltidet.webp";
     padding: 1rem;
   }
   .text p {
-    width: 65ch;
+    width: 75%;
+    justify-self: center;
   }
   #maltidetPopover {
     margin: auto;
@@ -87,5 +88,18 @@ import maltidet from "../assets/maltidet.webp";
     z-index: 2;
     width: calc(100% - 2rem);
     font-size: 4vw;
+  }
+
+  @media screen and (max-width: 600px) {
+    #maltidetPopover {
+      margin: auto;
+      width: 80%;
+      max-height: 80vh;
+    }
+
+    .text p {
+      width: 100%;
+      text-wrap: balance;
+    }
   }
 </style>

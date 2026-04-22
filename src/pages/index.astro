@@ -12,37 +12,51 @@ import hm3 from "../assets/hm3.webp";
 import billetter from "../assets/billetter.webp";
 import solen from "../assets/solen.webp";
 ---
+
 <Layout>
   <section class="mainSection">
-
-        <!-- Slideshow container -->
-            <div class="slideshow-container">
-                    <Image class="mySlides fade" src={hm1} alt="Høst Møn Festival" style="width:100%"/>
-                    <Image class="mySlides fade" src={hm2} alt="Høst Møn Festival" style="width:100%"/>
-                    <Image class="mySlides fade" src={hm3} alt="Høst Møn Festival" style="width:100%"/>
-            </div>
+    <!-- Slideshow container -->
+    <div class="slideshow-container">
+      <Image
+        class="mySlides fade"
+        src={hm1}
+        alt="Høst Møn Festival"
+        style="width:100%"
+      />
+      <Image
+        class="mySlides fade"
+        src={hm2}
+        alt="Høst Møn Festival"
+        style="width:100%"
+      />
+      <Image
+        class="mySlides fade"
+        src={hm3}
+        alt="Høst Møn Festival"
+        style="width:100%"
+      />
+    </div>
 
     <button popovertarget="billetPopover"
-      ><Image src={billetter} alt="Knap til at købe billetter"
-        class="billetter"></button>
+      ><Image
+        src={billetter}
+        alt="Knap til at købe billetter"
+        class="billetter"
+      />
+    </button>
 
-    <Image
-      src={solen}
-      alt="Solen man kan klikke på"
-      class="solen"
-    />
-
+    <Image src={solen} alt="Solen man kan klikke på" class="solen" />
   </section>
 
   <MenuPopover />
   <BilletPopover />
 
   <script src="../js/background.js"></script>
-    <script src="../js/slideshow.js"></script>
+  <script src="../js/slideshow.js"></script>
 </Layout>
 
 <style>
-slideshow-container {
+  .slideshow-container {
     border-radius: 999px;
     width: 100%;
     object-fit: cover;
@@ -72,16 +86,16 @@ slideshow-container {
   .mainSection {
     display: grid;
     grid-template-columns: 1.8fr 1fr 1.5fr;
-	gap: 1rem;
-  align-items: center;
+    gap: 1rem;
+    align-items: center;
   }
 
-      @media screen and (max-width: 800px) {
- .mainSection {
-    display: grid;
-    grid-template-columns: 1.8fr 1fr;
-	gap: 1rem;
-  align-items: center;
-  }
+  @media screen and (max-width: 800px) {
+    .mainSection {
+      display: grid;
+      grid-template-columns: 1.8fr 1fr;
+      gap: 1rem;
+      align-items: center;
     }
+  }
 </style>
