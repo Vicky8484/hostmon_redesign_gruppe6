@@ -1,3 +1,90 @@
 ---
 import "../styles/global.css";
+import { Image } from "astro:assets";
+import luk from "../assets/luk.webp";
+import maltidet from "../assets/maltidet.webp";
 ---
+
+<div popover id="maltidetPopover" class="background">
+  <div class="stickyBox">
+    <button popovertarget="menuPopover" id="close_btn" class="lukBtn"
+      ><Image src={luk} alt="Luk knap" /></button
+    >
+  </div>
+
+  <article>
+    <div class="container">
+      <Image src={maltidet} alt="Maltidet" />
+      <h1>Måltidet</h1>
+    </div>
+    <div class="text">
+      <p>
+        Høst Møn er andet og meget mere end koncerter med havudsigt, dansefest
+        under åben himmel og camping med træk&slip. Det er også en fest, der
+        kredser - og kræser- om det fælles måltid, og Høst Møns Madjunta har
+        udfoldet nedenstående manifest for måltidet på Høst Møn. Den store
+        fællesmiddag lørdag er inkluderet i billetprisen. Alle andre måltider
+        sælges separat på pladsen, og der er både vegetariske og veganske
+        muligheder.Det spiser vi: Mad og råvarer er fra omegnen og fra personer
+        vi kender. De kigger forbi festivalen, så sig hej, hvis du møder dem.
+        Råvareudbud og sæson afgør menuen. Menuen for Høst Møns måltider er
+        tilrettelagt ud fra de producenter, der ligger i omegnen, og som har
+        råvarer, der er i sæson.
+      </p>
+      <br />
+      <p>
+        Det sætter et naturligt benspænd for, hvad der er på menuen, og skaber
+        et måltid, der afspejler årstiden. Råvarer er så lidt forarbejdede som
+        muligt - og så bruger vi det hele. Det er for os vigtigt at arbejde med
+        en tilgang om, at hele råvaren bruges, så køkkenet ikke efterlader et
+        unødvendigt spild, der ellers kunne have været til nytte et andet
+        sted.\n\nSådan spiser vi:\nVi spiser sammen. Børn, voksne, dem der har
+        lavet maden, dem der spiller musikken, og dem der står bag baren.
+        Måltidet skal være en sanselig oplevelse, og maden skal nydes. Vi vil
+        gerne mindske affodrings-buffeter, hvor maden kun er til for at mætte.
+      </p>
+      <br />
+      <p>
+        Vi har sat os for, at selvom vi er mange, der skal spise sammen på samme
+        tid, skal det være et sted for fællesskab og et fælles sted at opleve
+        det unikt tilrettelagte Høst Møn måltid.\n\nVi spiser sammen om lørdagen
+        i to hold. Første hold klokken 18-19 og andet fra 20-21, og du kan
+        reservere din plads ved indgangen. Vi tænker, at børnefamilierne gerne
+        vil til klokken 18, så vi opfordrer andre til at tage den sene spisning.
+      </p>
+    </div>
+  </article>
+</div>
+
+<style>
+  .container {
+    position: relative;
+    text-align: center;
+    width: 100%;
+  }
+  .text {
+    padding: 1rem;
+  }
+  .text p {
+    width: 65ch;
+  }
+  #maltidetPopover {
+    margin: auto;
+    color: white;
+    border: none;
+    width: 50%;
+    max-height: 70vh;
+  }
+
+  h1 {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    bottom: 50%;
+    transform: translateX(-50%);
+    margin: 0;
+    z-index: 2;
+    width: calc(100% - 2rem);
+    font-size: 4vw;
+  }
+</style>
