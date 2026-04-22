@@ -1,3 +1,83 @@
 ---
 import "../styles/global.css";
+import { Image } from "astro:assets";
+import luk from "../assets/luk.webp";
+import impact from "../assets/impact.webp";
 ---
+
+<div popover id="omimpactPopover" class="background">
+  <div class="stickyBox">
+    <button popovertarget="menuPopover" id="close_btn" class="lukBtn"
+      ><Image src={luk} alt="Luk knap" /></button
+    >
+  </div>
+
+  <article>
+    <div class="container">
+      <Image src={impact} alt="impact festival billede" />
+
+      <h1>Impact Festival</h1>
+    </div>
+    <div class="text">
+      <p>
+        Høst Møn kuraterer igen livemusikken på Impact Festival i København.
+      </p>
+
+      <br />
+
+      <p>
+        Festivalen afholdes på Trifolium, et gammelt andelsmejeri i Sydhavnen,
+        der i dag fungerer som kontor- og værkstedsfællesskab.
+        <br />
+        I 2025 slog Trifolium portene op til baggården og værkstederne, som blev til
+        scener for musik, kunst, debatter og workshops under temaet "Collaboration,
+        Connection & Collective Impact".
+        <br />
+        I år er festivalen udvidet til to dage, og den 11.-12. september 2026 kan
+        du blandt andet opleve:A Good Year Alba Akvama Haloplus+ Miaw (der også spiller
+        på Høst Møn) Skal du på Høst Møn i år, får du 15% på din Impact Festival billet
+        ved brug af rabatkoden i Høst Møns nyhedsbrev, der sendes ud til alle billetkøbere.
+        Læs mere om Impact Festival <a
+          href="https://www.trifolium-impactfestival.com/">her</a
+        >
+        <br />
+        Impact Festivals officielle partnere er: Høst Møn, Collaborations by Thomas
+        & Tania Asbæk, Restaurant Pauli, Nusnus & Maté Maté.
+      </p>
+    </div>
+  </article>
+</div>
+
+<style>
+  .container {
+    position: relative;
+    text-align: center;
+    width: 100%;
+  }
+  .text {
+    padding: 1rem;
+  }
+  .text p {
+    width: 65ch;
+  }
+  #omimpactPopover {
+    margin: auto;
+    color: white;
+    border: none;
+    width: 65ch;
+    width: 50%;
+    max-height: 70vh;
+  }
+
+  h1 {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    bottom: 50%;
+    transform: translateX(-50%);
+    margin: 0;
+    z-index: 2;
+    width: calc(100% - 2rem);
+    font-size: 4vw;
+  }
+</style>
