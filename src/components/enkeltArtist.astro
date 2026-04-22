@@ -11,10 +11,13 @@ import spotify from "../assets/spotify.webp";
 
 <dialog id={`artistPopover-${slug}`} class="background">
   <div class="stickyBox">
-    <button popovertarget="menuPopover" id="close_btn" class="lukBtn"
-      ><Image src={luk} alt="Luk knap" /></button
+    <button
+      onclick="this.closest('dialog').close()"
+      id="close_btn"
+      class="lukBtn"><Image src={luk} alt="Luk knap" /></button
     >
   </div>
+
   <article>
     <div class="container">
       <img src={kunstner.kunstner_billede} alt={kunstner.kunstner_navn} />
@@ -49,7 +52,7 @@ import spotify from "../assets/spotify.webp";
     grid-template-columns: 1fr;
     border: none;
     width: 50%;
-    max-heigth: 70vh;
+    max-height: 70vh;
     color: #ffff;
     margin: auto;
   }
