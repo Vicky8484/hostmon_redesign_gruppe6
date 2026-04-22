@@ -1,4 +1,110 @@
 ---
+//@ts-nocheck
 import EnkeltArkiv from "./enkeltArkiv.astro";
 import "../styles/global.css";
+import { Image } from "astro:assets";
+import luk from "../assets/luk.webp";
+import img24 from "../assets/2024.webp";
+import img23 from "../assets/2023.webp";
+import img22 from "../assets/2022.webp";
+import img21 from "../assets/2021.webp";
+import img19 from "../assets/2019.webp";
+import img18 from "../assets/2018.webp";
+
+const url = `${import.meta.env.SUPABASE_URL}/rest/v1/hmArkiv?select=*`;
+const apiKey = import.meta.env.SUPABASE_PUBLISHABLE_KEY;
+
+const options = {
+  headers: {
+    apikey: apiKey,
+  },
+};
+
+const data = await fetch(url, options).then((res) => res.json());
+
+const slugify = (name) =>
+  name
+    .toLowerCase()
+    .replace(/\s+/g, "")
+    .replace(/[^a-z0-9]/g, "");
+
+console.log(data);
 ---
+
+<div popover id="arkivPopover" class="background">
+  <div class="stickyBox">
+    <button popovertarget="menuPopover" id="close_btn" class="lukBtn"
+      ><Image src={luk} alt="Luk knap" /></button
+    >
+  </div>
+  <h1>Hvem har spillet?</h1>
+  <section>
+    <div>
+      <button type="button" data-arkiv-slug="2024"
+        ><Image class="cta" src={img24} alt="2024" /></button
+      >
+      <button type="button" data-arkiv-slug="2023"
+        ><Image class="cta" src={img23} alt="2023" /></button
+      >
+      <button type="button" data-arkiv-slug="2022"
+        ><Image class="cta" src={img22} alt="2022" /></button
+      >
+    </div>
+    <div>
+      <button type="button" data-arkiv-slug="2021"
+        ><Image class="cta" src={img21} alt="2021" /></button
+      >
+      <button type="button" data-arkiv-slug="2019"
+        ><Image class="cta" src={img19} alt="2019" /></button
+      >
+      <button type="button" data-arkiv-slug="2018"
+        ><Image class="cta" src={img18} alt="2018" /></button
+      >
+    </div>
+  </section>
+</div>
+{
+  data.map((arkiv) => (
+    <EnkeltArkiv arkiv={arkiv} slug={slugify(arkiv.arstal)} />
+  ))
+}
+<script>
+  const arkivButtons = document.querySelectorAll("[data-arkiv-slug]");
+
+  arkivButtons.forEach((button) => {
+    button.addEventListener("click", () => {
+      const slug = button.getAttribute("data-arkiv-slug");
+      if (!slug) return;
+
+      const dialogEl = document.getElementById(`arkivPopover-${slug}`);
+      if (dialogEl instanceof HTMLDialogElement) {
+        if (typeof dialogEl.showModal === "function") {
+          dialogEl.showModal();
+        } else if (typeof dialogEl.show === "function") {
+          dialogEl.show();
+        }
+      }
+    });
+  });
+</script>
+<style>
+  #arkivPopover {
+    margin: auto;
+    width: 50%;
+    border: none;
+    color: white;
+    max-height: 70vh;
+  }
+  h1 {
+    text-align: center;
+    padding: 2rem 0;
+  }
+  section {
+    display: grid;
+    grid-template-columns: 1fr 0.8fr;
+    gap: 2.5rem;
+  }
+  .cta {
+    padding-bottom: 2rem;
+  }
+</style>
