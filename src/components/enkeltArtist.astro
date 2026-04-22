@@ -1,3 +1,68 @@
 ---
+//@ts-nocheck
+const { kunstner, slug } = Astro.props;
+
 import "../styles/global.css";
+import { Image } from "astro:assets";
+import luk from "../assets/luk.webp";
+import instagram from "../assets/insta.webp";
+import spotify from "../assets/spotify.webp";
 ---
+
+<dialog id={`artistPopover-${slug}`} class="background">
+  <div class="stickyBox">
+    <button popovertarget="menuPopover" id="close_btn" class="lukBtn"
+      ><Image src={luk} alt="Luk knap" /></button
+    >
+  </div>
+  <article>
+    <div class="container">
+      <img src={kunstner.kunstner_billede} alt={kunstner.kunstner_navn} />
+      <h1>{kunstner.kunstner_navn}</h1>
+    </div>
+    <div class="enkeltkunstnertekst">
+      <p>{kunstner.om_kunstner}</p>
+      <p>De er her {kunstner.dato}</p>
+      <p>Du kan hører dem {kunstner.tid}</p>
+
+      <div class="knapper">
+        <a href={kunstner.instagram_link}
+          ><Image
+            src={instagram}
+            alt=`link ${kunstner.kunstner_navn}s instagram`
+          /></a
+        >
+        <a href={kunstner.spotify_link}
+          ><Image
+            src={spotify}
+            alt=`link ${kunstner.kunstner_navn}s spotify`
+          /></a
+        >
+      </div>
+    </div>
+  </article>
+</dialog>
+
+<style>
+  dialog {
+    display: grid;
+    grid-template-columns: 1fr;
+    border: none;
+    width: 50%;
+    max-heigth: 70vh;
+    color: #ffff;
+    margin: auto;
+  }
+
+  .enkeltkunstnertekst {
+    padding: 1rem;
+    width: 65ch;
+  }
+  .knapper {
+    display: grid;
+    grid-template-columns: 1fr 0.7fr;
+    padding: 1rem;
+    padding-top: 3rem;
+    gap: 1rem;
+  }
+</style>
