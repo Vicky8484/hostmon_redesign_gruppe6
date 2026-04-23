@@ -62,31 +62,33 @@ console.log(data);
       >
     </div>
   </section>
-</div>
-{
-  data.map((arkiv) => (
-    <EnkeltArkiv arkiv={arkiv} slug={slugify(arkiv.arstal)} />
-  ))
-}
-<script>
-  const arkivButtons = document.querySelectorAll("[data-arkiv-slug]");
 
-  arkivButtons.forEach((button) => {
-    button.addEventListener("click", () => {
-      const slug = button.getAttribute("data-arkiv-slug");
-      if (!slug) return;
+  {
+    data.map((arkiv) => (
+      <EnkeltArkiv arkiv={arkiv} slug={slugify(arkiv.arstal)} />
+    ))
+  }
 
-      const dialogEl = document.getElementById(`arkivPopover-${slug}`);
-      if (dialogEl instanceof HTMLDialogElement) {
-        if (typeof dialogEl.showModal === "function") {
-          dialogEl.showModal();
-        } else if (typeof dialogEl.show === "function") {
-          dialogEl.show();
+  <script>
+    const arkivButtons = document.querySelectorAll("[data-arkiv-slug]");
+
+    arkivButtons.forEach((button) => {
+      button.addEventListener("click", () => {
+        const slug = button.getAttribute("data-arkiv-slug");
+        if (!slug) return;
+
+        const dialogEl = document.getElementById(`arkivPopover-${slug}`);
+        if (dialogEl instanceof HTMLDialogElement) {
+          if (typeof dialogEl.showModal === "function") {
+            dialogEl.showModal();
+          } else if (typeof dialogEl.show === "function") {
+            dialogEl.show();
+          }
         }
-      }
+      });
     });
-  });
-</script>
+  </script>
+</div>
 
 <style>
   #arkivPopover {
