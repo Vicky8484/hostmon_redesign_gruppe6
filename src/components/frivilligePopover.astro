@@ -1,3 +1,101 @@
 ---
 import "../styles/global.css";
+import { Image } from "astro:assets";
+import luk from "../assets/luk.webp";
+import maltidet from "../assets/maltidet.webp";
 ---
+
+<div popover id="frivilligePopover" class="background">
+  <div class="stickyBox">
+    <button popovertarget="frivilligePopover" id="close_btn" class="lukBtn"
+      ><Image src={luk} alt="Luk knap" /></button
+    >
+  </div>
+
+  <article>
+    <div class="container">
+      <img
+        src="https://cdn.prod.website-files.com/6977b715202fd1a32630856b/697bbddcb42fdd2c79f2fc0f_876c3c9d26bb82c6c6a45f61045ab681_Frivillig.jpg"
+        alt="slørret billede af frivillige der arbejder i bar"
+      />
+      <h1>Frivillige</h1>
+    </div>
+    <div class="text">
+      <p>
+        Vi skal bruge en masse hjælp til at lave festival et helt nyt sted. Alle
+        på festivalen arbejder frivilligt, og vi synes, at vi har en drøm af et
+        fællesskab. Der er mange gengangere fra år og til år, og flere af
+        arrangørerne havde deres debut på festivalen som frivillige i
+        afviklingen.
+        <br />
+        Vi håber på at se en masse kendte ansigter, men vi har i den grad også plads
+        til nye venner med stærke arme, hurtige hoveder og/eller varme hjerter, så
+        tøv ikke med at melde dig til. Billetpriserne er også steget, så der er kun
+        gode grunde.
+      </p>
+
+      <br />
+      <p>
+        Vi har brug for hjælp i dagene før, under og efter festivalen. En tjans
+        består af 2x6 timer, og man får mad, gavekort til baren og
+        festivalbillet retur. Vi holder også en frivilligfest en gang om året,
+        ligesom man får adgang til Impact Festival 2026.
+        <br />
+        Samtidig er det vigtigt, at man er bevidst om, at det stadigvæk er et arbejde,
+        og at vi forventer en dedikeret indsats i festivalens ånd. Festivalen kan
+        slet ikke lade sig gøre uden frivillige, så man påtager sig et stort ansvar,
+        men til gengæld får man uendeligt gode tider igen.
+        <br />
+        Skriv en mail til frivillig@hoestmoen.dk, hvis du er interesseret i at være
+        med til at sætte dit præg på festivalen
+      </p>
+    </div>
+  </article>
+</div>
+
+<style>
+  .container {
+    position: relative;
+    text-align: center;
+    width: 100%;
+  }
+  .text {
+    padding: 1rem;
+  }
+  .text p {
+    width: 75%;
+    justify-self: center;
+  }
+  #frivilligePopover {
+    margin: auto;
+    color: white;
+    border: none;
+    width: 50%;
+    max-height: 70vh;
+  }
+
+  h1 {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    bottom: 50%;
+    transform: translateX(-50%);
+    margin: 0;
+    z-index: 2;
+    width: calc(100% - 2rem);
+    font-size: 4vw;
+  }
+
+  @media screen and (max-width: 600px) {
+    #frivilligePopover {
+      margin: auto;
+      width: 80%;
+      max-height: 80vh;
+    }
+
+    .text p {
+      width: 100%;
+      text-wrap: balance;
+    }
+  }
+</style>

@@ -1,3 +1,47 @@
 ---
 import "../styles/global.css";
+
+import { Image } from "astro:assets";
+import luk from "../assets/luk.webp";
+import billet from "../assets/findbillet.webp";
 ---
+
+<div popover id="billetPopover" class="background">
+  <div class="stickyBox">
+    <button popovertarget="billetPopover" id="close_btn" class="lukBtn"
+      ><Image src={luk} alt="Luk knap" /></button
+    >
+  </div>
+
+  <div class="text">
+    <h1>Høst Møn Festival</h1>
+    <p>28 aug. 2026 12:00 - 29. aug. 2026 23:00</p>
+    <p><b>Fortvej 8, 4760, Vordingborg</b></p>
+  </div>
+  <br /><Image src={billet} alt="Billet" class="billetter" />
+</div>
+
+<style>
+  #billetPopover {
+    margin: auto;
+    color: white;
+    border: none;
+    width: 50%;
+  }
+  .text {
+    text-align: center;
+  }
+
+  .billetter:hover {
+    cursor: pointer;
+    filter: saturate(130%);
+  }
+
+  @media screen and (max-width: 1000px) {
+    #billetPopover {
+      margin: auto;
+      width: 80%;
+      max-height: 80vh;
+    }
+  }
+</style>

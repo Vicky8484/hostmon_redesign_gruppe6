@@ -1,3 +1,108 @@
 ---
 import "../styles/global.css";
+import { Image } from "astro:assets";
+import luk from "../assets/luk.webp";
+import impact from "../assets/impact.webp";
 ---
+
+<div popover id="pladsenPopover" class="background">
+  <div class="stickyBox">
+    <button popovertarget="pladsenPopover" id="close_btn" class="lukBtn"
+      ><Image src={luk} alt="Luk knap" /></button
+    >
+  </div>
+
+  <article>
+    <div class="container">
+      <img
+        src="https://cdn.prod.website-files.com/6977b715202fd1a32630856b/697bbfc0767a798837f84127_57172a19db2298a8d0d1a85736e4da69_Fortet.jpg"
+        alt="billed af stedet hvor festivalen kommer til at blive holdt"
+      />
+
+      <h1>Pladsen</h1>
+    </div>
+    <div class="text">
+      <p>
+        Høst Møn er tilbage! Hold din øl! Hent din pung! I sidste weekend af
+        august holder vi Høst Møn på Masnedøfortet. Det er lige uden for
+        Vordingborg, så transporten er lettere, bølgerne er højere, og udsigten
+        er stadigvæk Falster. Fra Hårbølle Strand kunne man se en lille hyggelig
+        båd og måske en vindmølle. Herfra kan du se kæmpefærger og
+        infrastruktur, som vore forældre lavede det. De to Storstrømsbroer
+        indrammer vores nye festivalsite, og man kan stadig bade, bo i første
+        række til havet, falde i søvn til vandet og electro fra natteteltet - og
+        vågne op med en udsigt, der er en naturlig del af programmet.
+      </p>
+
+      <br />
+
+      <p>
+        Overnatning på campingpladsen er inkluderet i prisen, og der er gode
+        muligheder for at finde havudsigt på det store område. Vi anbefaler, at
+        man kommer i god tid, og at man ikke lægger sig lige foran scenen.
+        <br />
+
+        Der er badefaciliteter, og morgenmaden bliver serveret på sengen, hvis
+        du selv trækker din luftmadras med op til langbordet.\n\nDer vil være et
+        ikke lige så begrænset antal autocamperpladser til salg i 2026, som der
+        plejer, men vi har desværre stadig ikke mulighed for at tilbyde strøm,
+        vand og afløb til campingvogne. Det er praktisk talt umuligt, og vi
+        beklager meget. Billetterne koster 200 kroner.
+        <br />
+
+        Der er masser af parkeringsplads, men hvis du kommer fra København,
+        opfordrer vi i den grad til at tage offentlig transport til Vordingborg
+        eller vores dedikerede bus. Den kører fra Hovedbanen fredag klokken
+        12.00 og 16.00, og den kører tilbage søndag klokken 13.00
+      </p>
+    </div>
+  </article>
+</div>
+
+<style>
+  .container {
+    position: relative;
+    text-align: center;
+    width: 100%;
+  }
+  .text {
+    padding: 1rem;
+  }
+  .text p {
+    width: 75%;
+    justify-self: center;
+  }
+
+  #pladsenPopover {
+    margin: auto;
+    color: white;
+    border: none;
+    width: 50%;
+    max-height: 70vh;
+  }
+
+  h1 {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    bottom: 50%;
+    transform: translateX(-50%);
+    margin: 0;
+    z-index: 2;
+    width: calc(100% - 2rem);
+    font-size: 4vw;
+  }
+
+  @media screen and (max-width: 800px) {
+    #pladsenPopover {
+      margin: auto;
+      width: 80%;
+      max-height: 80vh;
+    }
+
+    .text p {
+      width: 100%;
+      text-wrap: balance;
+    }
+  }
+</style>

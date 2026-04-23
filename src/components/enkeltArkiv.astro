@@ -1,3 +1,35 @@
 ---
 import "../styles/global.css";
+
+const { arkiv, slug } = Astro.props;
+import { Image } from "astro:assets";
+import luk from "../assets/luk.webp";
 ---
+
+<dialog id={`arkivPopover-${slug}`} class="background">
+  <div class="stickyBox">
+    <button
+      onclick="this.closest('dialog').close()"
+      id="close_btn"
+      class="lukBtn"><Image src={luk} alt="Luk knap" /></button
+    >
+  </div>
+  <img src={arkiv.arkiv_billede} alt=`Dem der spillede i ${arkiv.arstal}` />
+</dialog>
+
+<style>
+  dialog {
+    border: none;
+    width: 50%;
+    max-height: 70vh;
+    margin: auto;
+  }
+
+  @media screen and (max-width: 800px) {
+    dialog {
+      margin: auto;
+      width: 80%;
+      max-height: 80vh;
+    }
+  }
+</style>

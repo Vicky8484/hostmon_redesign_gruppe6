@@ -4,12 +4,13 @@ import { Image } from "astro:assets";
 import logo from "../assets/logo.webp";
 import menu from "../assets/menu.webp";
 ---
+
 <html lang="da">
   <head>
     <meta charset="utf-8" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <link rel="icon" href="/favicon.ico" />
-    <meta name="viewport" content="width=device-width" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="generator" content={Astro.generator} />
     <title>Høst Møn Festival</title>
     <link rel="stylesheet" href="styles/global.css" />
@@ -22,11 +23,7 @@ import menu from "../assets/menu.webp";
   <body>
     <main class="background">
       <header>
-        <Image
-          src={logo}
-          alt="Høst Møn Festival Logo"
-          class="logo"
-        />
+        <Image src={logo} alt="Høst Møn Festival Logo" class="logo" />
         <h3>28.-29. AUGUST 2027</h3>
         <button popovertarget="menuPopover"
           ><Image src={menu} alt="Menu knap" class="menu" /></button
@@ -50,32 +47,34 @@ import menu from "../assets/menu.webp";
 </html>
 
 <style>
-header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  flex-wrap: wrap;
+  body {
+    overflow-y: hidden;
+  }
+  header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
     position: sticky;
     top: 0;
     z-index: 10;
     padding: 1rem;
-}
+  }
 
-.logo {
-  width: clamp(150px, 15vw, 200px);
-}
+  .logo {
+    width: clamp(150px, 15vw, 200px);
+  }
 
-header h3 {
-  flex: 1;
-  min-width: 0;
-  text-align: center;
-  font-size: 3vw;
-}
+  header h3 {
+    flex: 1;
+    min-width: 0;
+    text-align: center;
+    font-size: 3vw;
+  }
 
-.menu {
-  width: clamp(70px, 12vw, 140px);
-}
-
+  .menu {
+    width: clamp(70px, 12vw, 140px);
+  }
 
   .menu:hover {
     cursor: pointer;
@@ -109,16 +108,16 @@ header h3 {
     text-decoration: underline;
   }
 
-      @media screen and (max-width: 800px) {
-header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  flex-wrap: wrap;
-    position: sticky;
-    top: 0;
-    z-index: 10;
-    padding: 1rem;
-}
+  @media screen and (max-width: 800px) {
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      position: sticky;
+      top: 0;
+      z-index: 10;
+      padding: 1rem;
     }
+  }
 </style>
